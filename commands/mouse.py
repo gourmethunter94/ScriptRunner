@@ -1,18 +1,10 @@
-from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue, ScriptCommandHandleAlreadyInUse, ScriptCommandNameAlreadyInUse, ScriptCommandUndefinedValue
+from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue, ScriptCommandUndefinedValue
 from pyautogui import click, moveTo, position
+from commands.command_template import CommandTemplate
 
-class MouseCommand:
+class MouseCommand(CommandTemplate):
     def __init__(self, command_dictionary, command_handles):
-        self.NAME = "mouse"
-        self.HANDLE = "m"
-        if command_dictionary.get(self.NAME):
-            raise ScriptCommandNameAlreadyInUse("Command name: " + self.NAME + ", already in use.")
-        else:
-            command_dictionary.update({self.NAME:self})
-        if command_handles.get(self.HANDLE):
-            raise ScriptCommandHandleAlreadyInUse("Command handle: " + self.HANDLE + ", already in use.")
-        else:
-            command_handles.update({self.HANDLE:self.NAME})
+        super().__init__("mouse", "m", command_dictionary, command_handles)
         self.buttons = {
             0:"left",
             1:"right",

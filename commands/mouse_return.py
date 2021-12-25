@@ -1,17 +1,9 @@
-from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue, ScriptCommandHandleAlreadyInUse, ScriptCommandNameAlreadyInUse
+from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue
+from commands.command_template import CommandTemplate
 
-class MouseReturnCommand:
+class MouseReturnCommand(CommandTemplate):
     def __init__(self, command_dictionary, command_handles):
-        self.NAME = "mousereturn"
-        self.HANDLE = "mr"
-        if command_dictionary.get(self.NAME):
-            raise ScriptCommandNameAlreadyInUse("Command name: " + self.NAME + ", already in use.")
-        else:
-            command_dictionary.update({self.NAME:self})
-        if command_handles.get(self.HANDLE):
-            raise ScriptCommandHandleAlreadyInUse("Command handle: " + self.HANDLE + ", already in use.")
-        else:
-            command_handles.update({self.HANDLE:self.NAME})
+        super().__init__("mousereturn", "mr", command_dictionary, command_handles)
         self.finalization_exception = False
     
     def confirm_validity(self, values, line):

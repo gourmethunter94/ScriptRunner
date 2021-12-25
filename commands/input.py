@@ -1,20 +1,12 @@
-from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue, ScriptCommandHandleAlreadyInUse, ScriptCommandNameAlreadyInUse
+from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue
 from pyautogui import write
+from commands.command_template import CommandTemplate
 
 SPACE = "space"
 
-class InputCommand:
+class InputCommand(CommandTemplate):
     def __init__(self, command_dictionary, command_handles):
-        self.NAME = "input"
-        self.HANDLE = "i"
-        if command_dictionary.get(self.NAME):
-            raise ScriptCommandNameAlreadyInUse("Command name: " + self.NAME + ", already in use.")
-        else:
-            command_dictionary.update({self.NAME:self})
-        if command_handles.get(self.HANDLE):
-            raise ScriptCommandHandleAlreadyInUse("Command handle: " + self.HANDLE + ", already in use.")
-        else:
-            command_handles.update({self.HANDLE:self.NAME})
+        super().__init__("input", "i", command_dictionary, command_handles)
         self.finalization_exception = False
     
     def confirm_validity(self, values, line):

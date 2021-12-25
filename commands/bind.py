@@ -1,18 +1,10 @@
-from commands.errors import ScriptCommandIncorrectValueCount, ScriptInvalidScriptType, ScriptCommandHandleAlreadyInUse, ScriptCommandNameAlreadyInUse
+from commands.errors import ScriptCommandIncorrectValueCount, ScriptInvalidScriptType
 from time import sleep
+from commands.command_template import CommandTemplate
 
-class BindCommand:
+class BindCommand(CommandTemplate):
     def __init__(self, command_dictionary, command_handles):
-        self.NAME = "bind"
-        self.HANDLE = "b"
-        if command_dictionary.get(self.NAME):
-            raise ScriptCommandNameAlreadyInUse("Command name: " + self.NAME + ", already in use.")
-        else:
-            command_dictionary.update({self.NAME:self})
-        if command_handles.get(self.HANDLE):
-            raise ScriptCommandHandleAlreadyInUse("Command handle: " + self.HANDLE + ", already in use.")
-        else:
-            command_handles.update({self.HANDLE:self.NAME})
+        super().__init__("bind", "b", command_dictionary, command_handles)
     
     def confirm_validity(self, values, line, blocks):
         from script import Script
