@@ -1,44 +1,44 @@
 executable
 
-escapekey f10
+escapekey   f10
 
-mouse 0 400 400
-wait 1
-input a
-wait 5
+mouse       0 400 400
+wait        1
+input       a
+wait        5
 mousereturn 0
-wait 1
-mouse 0 700 700
-wait 1
+wait        1
+mouse       0 700 700
+wait        1
 mousereturn 1
-wait 1
-mouse 0 900 700
-input b
-input c
-input d
-wait 1
-command dir
+wait        1
+mouse       0 900 700
+input       b
+input       c
+input       d
+wait        1
+command     dir
 
-set mouse_x 600
-set mouse_y 600
-mouse 0 $mouse_x $mouse_y
-wait 2
+set         mouse_x 600
+set         mouse_y 600
+mouse       0 $mouse_x $mouse_y
+wait        2
 
-set mouse_x 500
-set mouse_y 500
-mouse 0 $mouse_x $mouse_y
-wait 2
+set         mouse_x 500
+set         mouse_y 500
+mouse       0 $mouse_x $mouse_y
+wait        2
 
-set wait_time 1
+set         wait_time 1
 
-set mouse_x 400
-set mouse_y 400
-mouse 0 $mouse_x $mouse_y
-wait $wait_time
+set         mouse_x 400
+set         mouse_y 400
+mouse       0 $mouse_x $mouse_y
+wait        $wait_time
 
-set mouse_x 300
-set mouse_y 300
-mouse 0 $mouse_x $mouse_y
-wait $wait_time
+set         mouse_x 300
+set         mouse_y 300
+mouse       0 $mouse_x $mouse_y
+wait        $wait_time
 
-mouse 0 200 200
+mouse       0 200 200
