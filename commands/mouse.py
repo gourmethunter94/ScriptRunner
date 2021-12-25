@@ -1,4 +1,4 @@
-from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue, ScriptCommandHandleAlreadyInUse, ScriptCommandNameAlreadyInUse
+from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue, ScriptCommandHandleAlreadyInUse, ScriptCommandNameAlreadyInUse, ScriptCommandUndefinedValue
 from pyautogui import click, moveTo, position
 
 class MouseCommand:
@@ -31,14 +31,17 @@ class MouseCommand:
                 raise ScriptCommandInvalidValue("First value given to command on line \"" + line + "\" should be \"0\", \"1\", or \"2\".")
             else:
                 values[0] = self.buttons.get(int(values[0]))
-            int(values[1])
-            int(values[2])
+            if values[1][0] != "$":
+                int(values[1])
+            if values[2][0] != "$":
+                int(values[2])
         except:
             raise ScriptCommandInvalidValue("All three values given to command on line \"" + line + "\" should be either integers.")
         return True
     
     def execute_command(self, values, extra_values):
+        from script_runner import RETURN_TO_OLD_POSITION
         old_position = position()
-        click(button=values[0] , x=int(values[1]), y=int(values[2]))
-        if extra_values.get("return_to_old_position"):
+        click(button=values[0] , x = int(values[1]), y = int(values[2]))
+        if extra_values.get(RETURN_TO_OLD_POSITION):
             moveTo(old_position)

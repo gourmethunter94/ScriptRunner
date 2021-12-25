@@ -18,3 +18,27 @@ input c
 input d
 wait 1
 command dir
+
+set mouse_x 600
+set mouse_y 600
+mouse 0 $mouse_x $mouse_y
+wait 2
+
+set mouse_x 500
+set mouse_y 500
+mouse 0 $mouse_x $mouse_y
+wait 2
+
+set wait_time 1
+
+set mouse_x 400
+set mouse_y 400
+mouse 0 $mouse_x $mouse_y
+wait $wait_time
+
+set mouse_x 300
+set mouse_y 300
+mouse 0 $mouse_x $mouse_y
+wait $wait_time
+
+mouse 0 200 200

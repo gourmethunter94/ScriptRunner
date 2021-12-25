@@ -21,3 +21,6 @@ class ScriptCommandHandleAlreadyInUse(Exception):
 
 class ScriptCommandNameAlreadyInUse(Exception):
     pass
+
+class ScriptCommandUndefinedValue(Exception):
+    pass

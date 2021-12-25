@@ -20,4 +20,5 @@ class EscapeKeyCommand:
         return True
     
     def execute_command(self, values, extra_values):
-        extra_values.update({"escape_key":values[0]})
+        from script_runner import ESCAPE_KEY
+        extra_values.update({ESCAPE_KEY:values[0]})

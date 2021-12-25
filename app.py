@@ -2,6 +2,7 @@ from script_runner import ScriptRunner
 from script_translator import ScriptTranslator
 from script import Script
 from sys import argv as ARGUMENTS
+from os import _exit as forced_exit
 
 try:
     path = ARGUMENTS[1]
@@ -16,4 +17,4 @@ try:
     runner.run()
 except KeyboardInterrupt:
     print("Keyboard Interrupt recieved, terminating the program.")
-    exit(print("Program terminated."))
+    forced_exit(1)

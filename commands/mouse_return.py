@@ -25,4 +25,5 @@ class MouseReturnCommand:
         return True
     
     def execute_command(self, values, extra_values):
-        extra_values.update({"return_to_old_position":bool(int(values[0]))})
+        from script_runner import RETURN_TO_OLD_POSITION
+        extra_values.update({RETURN_TO_OLD_POSITION:bool(int(values[0]))})

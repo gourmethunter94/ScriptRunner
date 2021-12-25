@@ -10,6 +10,7 @@ from commands.mouse_return import MouseReturnCommand
 from commands.command import CommandCommand
 from commands.program import ProgramCommand
 from commands.escape_key import EscapeKeyCommand
+from commands.set import SetCommand
 
 from commands.bind import BindCommand
 
@@ -39,6 +40,7 @@ class ScriptTranslator:
         CommandCommand(self.recognized_commands, self.short_handles)
         ProgramCommand(self.recognized_commands, self.short_handles)
         EscapeKeyCommand(self.recognized_commands, self.short_handles)
+        SetCommand(self.recognized_commands, self.short_handles)
 
         self.macro_commands = {}
 
