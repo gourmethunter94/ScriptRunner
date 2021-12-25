@@ -79,7 +79,7 @@ class ScriptRunner:
                     if variable_value:
                         execute_values.append(variable_value)
                     else:
-                        raise ScriptCommandUndefinedValue("Undefined variable used to try to define value of mouse function.")
+                        raise ScriptCommandUndefinedValue("Undefined variable used to try to define value for a function.")
             self.command_functions.get(command.command).execute_command(execute_values, self.custom_values)
         except KeyboardInterrupt:
             self.continue_looking_for_escape = False

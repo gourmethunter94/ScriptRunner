@@ -11,6 +11,8 @@ from commands.command import CommandCommand
 from commands.program import ProgramCommand
 from commands.escape_key import EscapeKeyCommand
 from commands.set import SetCommand
+from commands.plus import PlusCommand
+from commands.minus import MinusCommand
 
 from commands.bind import BindCommand
 
@@ -41,6 +43,8 @@ class ScriptTranslator:
         ProgramCommand(self.recognized_commands, self.short_handles)
         EscapeKeyCommand(self.recognized_commands, self.short_handles)
         SetCommand(self.recognized_commands, self.short_handles)
+        PlusCommand(self.recognized_commands, self.short_handles)
+        MinusCommand(self.recognized_commands, self.short_handles)
 
         self.macro_commands = {}
 

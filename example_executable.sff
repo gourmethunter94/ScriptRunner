@@ -2,6 +2,25 @@ executable
 
 escapekey   f10
 
+mousereturn 0
+
+set         mouse_x 600
+set         mouse_y 600
+mouse       0 $mouse_x $mouse_y
+wait        4
+
+plus        mouse_x 300
+plus        mouse_y 300
+mouse       0 $mouse_x $mouse_y
+wait        4
+
+minus       mouse_x 600
+minus       mouse_y 600
+mouse       0 $mouse_x $mouse_y
+wait        4
+
+mousereturn 1
+
 mouse       0 400 400
 wait        1
 input       a
