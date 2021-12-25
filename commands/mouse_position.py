@@ -1,9 +1,10 @@
 from commands.errors import ScriptCommandIncorrectValueCount, ScriptCommandInvalidValue
 from commands.command_template import CommandTemplate
+from pyautogui import position
 
-class SetCommand(CommandTemplate):
+class MousePositionCommand(CommandTemplate):
     def __init__(self, command_dictionary, command_handles):
-        super().__init__("set", "s", command_dictionary, command_handles)
+        super().__init__("mouseposition", "mp", command_dictionary, command_handles)
         self.finalization_exception = False
 
     def confirm_validity(self, values, line):
@@ -14,11 +15,11 @@ class SetCommand(CommandTemplate):
             raise ScriptCommandIncorrectValueCount("Too few values given to command on line \"" + line + "\".")
         if values[0] in DEFAULT_VARIABLES:
             raise ScriptCommandInvalidValue("First value given to command on line \"" + line + "\" cannot be same as one of the default variables.")
-        try:
-            float(values[1])
-        except:
-            raise ScriptCommandInvalidValue("Second value given to command on line \"" + line + "\" should be a numeric value.")
+        if values[1] in DEFAULT_VARIABLES:
+            raise ScriptCommandInvalidValue("Second value given to command on line \"" + line + "\" cannot be same as one of the default variables.")
         return True
     
     def execute_command(self, values, extra_values):
-        extra_values.update({values[0]:float(values[1])})
+        mouse_x, mouse_y = position()
+        extra_values.update({values[0]:float(mouse_x)})
+        extra_values.update({values[1]:float(mouse_y)})

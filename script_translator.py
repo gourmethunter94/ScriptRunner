@@ -13,6 +13,7 @@ from commands.escape_key import EscapeKeyCommand
 from commands.set import SetCommand
 from commands.plus import PlusCommand
 from commands.minus import MinusCommand
+from commands.mouse_position import MousePositionCommand
 
 from commands.bind import BindCommand
 
@@ -45,6 +46,7 @@ class ScriptTranslator:
         SetCommand(self.recognized_commands, self.short_handles)
         PlusCommand(self.recognized_commands, self.short_handles)
         MinusCommand(self.recognized_commands, self.short_handles)
+        MousePositionCommand(self.recognized_commands, self.short_handles)
 
         self.macro_commands = {}
 
