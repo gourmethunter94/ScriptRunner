@@ -1,0 +1,29 @@
+loop
+
+mr 0
+
+w  2
+m  0 130 130
+w  0.98
+i  space
+w  1531
+m  0 31 30
+w  0.75
+i  space
+w  1671
+m  0 31 31
+w  1.12
+i  space
+w  1401
+m  0 30 31
+w  0.96
+i  space
+w  1532
+m  0 30 32
+w  0.71
+i  space
+w  1252
+m  0 31 31
+w  1.34
+i  space
+w  1384

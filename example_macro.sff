@@ -1,0 +1,3 @@
+macro
+
+bind  ctrl+a absolute/path/to/a/script/file/example_executable.sff

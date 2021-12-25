@@ -1,0 +1,18 @@
+executable
+
+mouse 0 400 400
+wait 1
+input a
+wait 5
+mousereturn 0
+wait 1
+mouse 0 700 700
+wait 1
+mousereturn 1
+wait 1
+mouse 0 900 700
+input b
+input c
+input d
+wait 1
+command dir
