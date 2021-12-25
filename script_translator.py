@@ -14,19 +14,9 @@ from commands.set import SetCommand
 from commands.plus import PlusCommand
 from commands.minus import MinusCommand
 from commands.mouse_position import MousePositionCommand
+from commands.find_image import FindImageCommand
 
 from commands.bind import BindCommand
-
-INPUT = "input"
-WAIT = "wait"
-MOUSE = "mouse"
-EXECUTE = "execute"
-PROGRAM = "program"
-COMMAND = "command"
-
-BIND = "bind"
-
-MOUSERETURN = "mousereturn"
 
 class ScriptTranslator:
     def __init__(self, script):
@@ -47,6 +37,7 @@ class ScriptTranslator:
         PlusCommand(self.recognized_commands, self.short_handles)
         MinusCommand(self.recognized_commands, self.short_handles)
         MousePositionCommand(self.recognized_commands, self.short_handles)
+        FindImageCommand(self.recognized_commands, self.short_handles)
 
         self.macro_commands = {}
 

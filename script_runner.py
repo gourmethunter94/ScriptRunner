@@ -1,5 +1,4 @@
 from script import EXECUTABLE, MACRO, LOOP
-from script_translator import INPUT, WAIT, MOUSE, LOOP, EXECUTE, BIND, MOUSERETURN, PROGRAM, COMMAND
 from time import sleep
 from keyboard import is_pressed
 from threading import Thread
