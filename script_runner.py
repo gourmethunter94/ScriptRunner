@@ -2,9 +2,12 @@ from script import EXECUTABLE, MACRO, LOOP
 from script_translator import INPUT, WAIT, MOUSE, LOOP, EXECUTE, BIND, MOUSERETURN, PROGRAM, COMMAND
 from time import sleep
 from keyboard import is_pressed
+from threading import Thread
+
+from os import _exit as forced_exit
 
 class ScriptRunner:
-    def __init__(self, script):
+    def __init__(self, script, origin_thread=False):
         self.script = script
         self.identifier = self.script.identifier
         commands = dict(script.recognized_commands)
@@ -12,10 +15,14 @@ class ScriptRunner:
         self.command_functions = commands
         self.custom_values = {
             "return_to_old_position":True,
-            "macro_running":False
+            "macro_running":False,
+            "escape_key":"f12"
         }
+        self.origin_thread = origin_thread
     
     def run(self):
+        if self.origin_thread:
+            Thread(target=self._end_program).start()
         print("Script runner has begun execution.")
         if self.identifier == EXECUTABLE:
             for command in self.script.blocks[0][1]:
@@ -31,6 +38,14 @@ class ScriptRunner:
                         self._handle_bind(block[1])
                 sleep(0.05)
     
+    def _end_program(self):
+        while True:
+            for block in self.script.blocks:
+                if is_pressed(self.custom_values.get("escape_key")):
+                    print("Closing the macro execution due to user request.")
+                    forced_exit(1)
+            sleep(0.05)
+
     def _handle_bind(self, values):
         from commands.execute import ExecuteCommand
         if self.custom_values.get("macro_running") == False:

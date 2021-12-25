@@ -10,7 +10,7 @@ except IndexError:
 
 script_file = Script(path)
 translator = ScriptTranslator(script_file)
-runner = ScriptRunner(translator)
+runner = ScriptRunner(translator, origin_thread=True)
 
 try:
     runner.run()

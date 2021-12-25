@@ -1,5 +1,7 @@
 executable
 
+escapekey f10
+
 mouse 0 400 400
 wait 1
 input a
