@@ -1,4 +1,6 @@
-## ScriptRunner
+# ScriptRunner
+
+Simple tool to run and develope scripts that control keyboard and mouse
 
 Dependencies
 ```
