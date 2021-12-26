@@ -1,0 +1,45 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ScriptRunner Script",
+	"patterns": [
+		{
+			"include": "#filetypes"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#commands"
+		},
+		{
+			"include": "#binds"
+		}
+	],
+	"repository": {
+		"filetypes": {
+			"patterns": [{
+				"name": "comment.line.number-sign.sff",
+				"match": "\\b(executable|loop|macro)\\b"
+			}]
+		},
+		"commands": {
+			"patterns": [{
+				"name": "keyword.control.sff",
+				"match": "\\b(command|escapekey|execute|findimage|input|minus|plus|mouseposition|mousereturn|mouse|program|set|wait)\\b"
+			}]
+		},
+		"binds": {
+			"patterns": [{
+				"name": "string.quoted.docstring.multi.sff",
+				"match": "\\b(bind)\\b"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"match": "(\\$)[a-zA-Z_][a-zA-Z0-9_]*",
+				"name": "variable.other.normal.sff"
+			}]
+		}
+	},
+	"scopeName": "source.sff"
+}

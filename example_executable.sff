@@ -21,7 +21,6 @@ minus           mouse_y 600
 mouse           0 $mouse_x $mouse_y
 wait            4
 
-
 mouse           0 $mouse_pos_x $mouse_pos_y
 wait            4
 

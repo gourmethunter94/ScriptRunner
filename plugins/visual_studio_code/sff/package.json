@@ -1,0 +1,25 @@
+{
+    "name": "sff",
+    "displayName": "ScriptRunner",
+    "description": "ScriptRunner Script Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.63.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "sff",
+            "aliases": ["ScriptRunner Script", "sff"],
+            "extensions": [".sff"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "sff",
+            "scopeName": "source.sff",
+            "path": "./syntaxes/sff.tmLanguage.json"
+        }]
+    }
+}
